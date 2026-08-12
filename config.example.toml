@@ -1,0 +1,8 @@
+# Copy to config.toml (or any path of your choosing) and fill in real values.
+# Pass it to the CLI with: swift run kaos --config config.toml <file>.mp3
+
+host = "icecast.example.com"
+port = 8000        # optional, defaults to 8000
+user = "source"    # optional, defaults to "source"
+password = "hackme"
+mount = "/stream.mp3"

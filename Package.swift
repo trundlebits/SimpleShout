@@ -1,0 +1,33 @@
+// swift-tools-version: 6.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "SimpleStreamer",
+    platforms: [.macOS(.v15)],
+    products: [.executable(name: "simplestreamer",
+               targets: ["SimpleStreamer"])],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+        .package(path: "../SwiftShout.git"),
+        .package(url: "https://github.com/LebJe/TOMLKit.git", from: "0.6.0"),
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        .executableTarget(
+            name: "SimpleStreamer",
+            dependencies: [
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                .product(name: "SwiftShout", package: "SwiftShout"),
+                .product(name: "TOMLKit", package: "TOMLKit"),
+            ]
+        ),
+        .testTarget(
+            name: "SimpleStreamerTests",
+            dependencies: ["SimpleStreamer"]
+        ),
+    ],
+    swiftLanguageModes: [.v6]
+)
