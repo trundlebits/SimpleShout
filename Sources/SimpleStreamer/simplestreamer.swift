@@ -5,7 +5,6 @@
 // https://swiftpackageindex.com/apple/swift-argument-parser/documentation
 
 import ArgumentParser
-import CShout
 import SwiftShout
 
 @main
@@ -22,7 +21,7 @@ struct kaos: ParsableCommand {
         _ = SwiftShout()
 
         guard let connection = ShoutConnection() else {
-            throw ShoutError(message: "shout_new() failed")
+            throw StreamerError(message: "shout_new() failed")
         }
 
         connection.setHost(icecastConfig.host)
@@ -32,9 +31,11 @@ struct kaos: ParsableCommand {
         connection.setMount(icecastConfig.mount)
         connection.setContentFormat(format: .mp3, usage: .audio)
 
-        guard connection.open() == SHOUTERR_SUCCESS else {
-            throw ShoutError(
-                message: "Couldn't connect to \(icecastConfig.host):\(icecastConfig.port)\(icecastConfig.mount): \(connection.errorDescription)"
+        do {
+            try connection.open()
+        } catch {
+            throw StreamerError(
+                message: "Couldn't connect to \(icecastConfig.host):\(icecastConfig.port)\(icecastConfig.mount): \(error)"
             )
         }
         defer { connection.close() }

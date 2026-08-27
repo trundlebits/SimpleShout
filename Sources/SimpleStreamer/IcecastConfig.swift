@@ -26,14 +26,14 @@ struct IcecastConfig: Codable {
         do {
             contents = try String(contentsOf: URL(fileURLWithPath: path), encoding: .utf8)
         } catch {
-            throw ShoutError(message: "Couldn't read config file at \(path): \(error.localizedDescription)")
+            throw StreamerError(message: "Couldn't read config file at \(path): \(error.localizedDescription)")
         }
 
         do {
             let table = try TOMLTable(string: contents)
             return try TOMLDecoder().decode(IcecastConfig.self, from: table)
         } catch {
-            throw ShoutError(message: "Couldn't parse TOML config at \(path): \(error)")
+            throw StreamerError(message: "Couldn't parse TOML config at \(path): \(error)")
         }
     }
 }
