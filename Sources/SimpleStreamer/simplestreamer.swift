@@ -8,7 +8,7 @@ import ArgumentParser
 import SwiftShout
 
 @main
-struct kaos: ParsableCommand {
+struct simplestreamer: ParsableCommand {
     @Option(help: "Path to a TOML config file with Icecast server parameters.")
     var config: String
 

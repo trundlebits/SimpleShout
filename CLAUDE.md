@@ -32,8 +32,8 @@ re-wrap it as `StreamerError` for CLI output.
   binary/command name). Not named `main.swift`: a file literally named `main.swift` is always parsed
   with top-level-code semantics, which conflicts with `@main` once a target has more than one source
   file. Parses `--config <path>` and a positional MP3 file path, then wires `IcecastConfig` into a
-  `ShoutConnection` and streams the file. (The `@main` type inside is still named `kaos`, a leftover
-  from the KAOS_Streamer copy, so the CLI usage string reads `kaos`.)
+  `ShoutConnection` and streams the file. The `@main` type is `struct simplestreamer`; the compiled
+  binary name comes from `.executable(name:)` in `Package.swift`, not the type name.
 - `Sources/SimpleStreamer/IcecastConfig.swift` — `Codable` struct for the TOML config file
   (host/port/user/password/mount, with defaults for port/user), plus `IcecastConfig.load(from:)`.
 - `Sources/SimpleStreamer/MP3FileStreamer.swift` — `streamMP3File(at:over:)`, which reads an MP3 file
