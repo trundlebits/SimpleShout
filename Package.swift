@@ -24,10 +24,6 @@ let package = Package(
                 .product(name: "TOMLKit", package: "TOMLKit"),
             ]
         ),
-        .testTarget(
-            name: "SimpleStreamerTests",
-            dependencies: ["SimpleStreamer"]
-        ),
     ],
     swiftLanguageModes: [.v6]
 )
