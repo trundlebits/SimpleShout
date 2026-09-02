@@ -1,14 +1,14 @@
 import Foundation
 import SwiftShout
 
-struct StreamerError: LocalizedError {
+struct SimpleShoutError: LocalizedError {
     let message: String
     var errorDescription: String? { message }
 }
 
 func streamMP3File(at path: String, over connection: ShoutConnection) throws {
     guard let file = FileHandle(forReadingAtPath: path) else {
-        throw StreamerError(message: "Couldn't open MP3 file at \(path)")
+        throw SimpleShoutError(message: "Couldn't open MP3 file at \(path)")
     }
     defer { try? file.close() }
 
@@ -17,7 +17,7 @@ func streamMP3File(at path: String, over connection: ShoutConnection) throws {
         do {
             try connection.send([UInt8](chunk))
         } catch {
-            throw StreamerError(message: "Failed sending audio data: \(error)")
+            throw SimpleShoutError(message: "Failed sending audio data: \(error)")
         }
         connection.sync()
     }

@@ -8,7 +8,9 @@ import ArgumentParser
 import SwiftShout
 
 @main
-struct simplestreamer: ParsableCommand {
+struct SimpleShout: ParsableCommand {
+    static let configuration = CommandConfiguration(commandName: "simpleshout")
+
     @Option(help: "Path to a TOML config file with Icecast server parameters.")
     var config: String
 
@@ -21,7 +23,7 @@ struct simplestreamer: ParsableCommand {
         _ = SwiftShout()
 
         guard let connection = ShoutConnection() else {
-            throw StreamerError(message: "shout_new() failed")
+            throw SimpleShoutError(message: "shout_new() failed")
         }
 
         connection.setHost(icecastConfig.host)
@@ -34,7 +36,7 @@ struct simplestreamer: ParsableCommand {
         do {
             try connection.open()
         } catch {
-            throw StreamerError(
+            throw SimpleShoutError(
                 message: "Couldn't connect to \(icecastConfig.host):\(icecastConfig.port)\(icecastConfig.mount): \(error)"
             )
         }

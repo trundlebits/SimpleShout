@@ -1,5 +1,5 @@
 # Copy to config.toml (or any path of your choosing) and fill in real values.
-# Pass it to the CLI with: swift run simplestreamer --config config.toml <file>.mp3
+# Pass it to the CLI with: swift run simpleshout --config config.toml <file>.mp3
 
 host = "icecast.example.com"
 port = 8000        # optional, defaults to 8000

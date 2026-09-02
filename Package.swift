@@ -4,10 +4,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "SimpleStreamer",
+    name: "SimpleShout",
     platforms: [.macOS(.v15)],
-    products: [.executable(name: "simplestreamer",
-               targets: ["SimpleStreamer"])],
+    products: [.executable(name: "simpleshout",
+               targets: ["SimpleShout"])],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
         .package(path: "../SwiftShout.git"),
@@ -17,7 +17,7 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
-            name: "SimpleStreamer",
+            name: "SimpleShout",
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "SwiftShout", package: "SwiftShout"),
