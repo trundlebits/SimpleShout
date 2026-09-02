@@ -4,20 +4,12 @@ _SimpleShout_ is a command-line Icecast source client written in Swift. It
 reads Icecast server parameters from a TOML config file and streams a single
 local MP3 file to that server.
 
-This project is meant as a demo of _SwiftShout_ only, no feature requests will
-be accepted.
+This project is meant as the most minimal demo of the _SwiftShout_ framework, no new feature requests will be accepted.  This project will always try to align with the application binary interface (ABI) of _SwiftShout_.
 
 ## Requirements
 
-- Swift 6.x toolchain
-- macOS 15+
-- [`libshout`](https://icecast.org/) and its `pkg-config` file, since
-  `SimpleShout` depends on [SwiftShout](https://github.com/) (a local
-  sibling checkout at `../SwiftShout.git`), which wraps it:
-
-  ```bash
-  brew install libshout
-  ```
+- Swift 6.x toolchain.  This project has been tested with Swift 6.x on both macOS and Linux.
+- [SwiftShout](https://github.com/trundlebits/SwiftShout) framwework.  This framework will automatically be installed by Swift Package Manager (SPM) when you build and run _SimpleShout_.
 
 ## Building
 
