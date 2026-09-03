@@ -19,7 +19,7 @@ swift build
 
 ## Configuring
 
-Copy the example config and fill in your Icecast server details:
+Copy [the example config](/config.example.toml) and fill in your Icecast server details:
 
 ```bash
 cp config.example.toml config.toml
