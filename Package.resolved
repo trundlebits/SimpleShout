@@ -1,5 +1,5 @@
 {
-  "originHash" : "b336fab2d3e9c8bca69c54756f25de4be3f5904a3db2158fa1777add16055ebb",
+  "originHash" : "23afb7142b70ed3323098003c15c0f47e446e27aa3b4e8aaa51f3c17878725a3",
   "pins" : [
     {
       "identity" : "swift-argument-parser",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "6a52f3251125d74daf04fcbd5e6f08a75d074382",
         "version" : "1.8.2"
+      }
+    },
+    {
+      "identity" : "swiftshout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trundlebits/SwiftShout.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2b8a4173588351cec10fb9a212669b220718facd"
       }
     },
     {

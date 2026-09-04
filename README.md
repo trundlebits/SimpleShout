@@ -6,6 +6,17 @@ local MP3 file to that server.
 
 This project is meant as the most minimal demo of the _SwiftShout_ framework, no new feature requests will be accepted.  This project will always try to align with the application binary interface (ABI) of _SwiftShout_.
 
+## Source of truth
+
+The canonical repositories for both projects live under the
+[trundlebits](https://github.com/trundlebits) GitHub organization:
+
+- **SimpleShout** (this project): <https://github.com/trundlebits/SimpleShout>
+- **SwiftShout** (the framework): <https://github.com/trundlebits/SwiftShout>
+
+`Package.swift` depends on SwiftShout directly from that GitHub URL (tracking
+`main` until SwiftShout tags a release).
+
 ## Requirements
 
 - Swift 6.x toolchain.  This project has been tested with Swift 6.x on both macOS and Linux.
@@ -56,8 +67,8 @@ swift build -c release
   executable
   target `SimpleShout`, depending on
   [swift-argument-parser](https://github.com/apple/swift-argument-parser),
-  [SwiftShout](https://github.com/) (a local path dependency at
-  `../SwiftShout.git`), and [TOMLKit](https://github.com/LebJe/TOMLKit).
+  [SwiftShout](https://github.com/trundlebits/SwiftShout) (fetched from GitHub,
+  tracking `main`), and [TOMLKit](https://github.com/LebJe/TOMLKit).
 - `Sources/SimpleShout/SimpleShout.swift` — the CLI entry point. Parses
   `--config <path>` and a positional MP3 file path, wires `IcecastConfig` into
   a `ShoutConnection`, and streams the file.

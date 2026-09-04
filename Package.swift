@@ -10,7 +10,7 @@ let package = Package(
                targets: ["SimpleShout"])],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
-        .package(path: "../SwiftShout.git"),
+        .package(url: "https://github.com/trundlebits/SwiftShout.git", branch: "main"),
         .package(url: "https://github.com/LebJe/TOMLKit.git", from: "0.6.0"),
     ],
     targets: [

@@ -2,6 +2,29 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Source of truth
+
+Both projects are public and canonically hosted under the
+[trundlebits](https://github.com/trundlebits) GitHub organization:
+
+- **SimpleShout** (this repo): <https://github.com/trundlebits/SimpleShout>
+- **SwiftShout** (the framework this depends on): <https://github.com/trundlebits/SwiftShout>
+
+Treat those GitHub repositories as the source of truth for both projects.
+
+## Shared Claude Code artifact page
+
+All three related projects — **KAOS_Streamer**, **SwiftShout**, and **SimpleShout** —
+document their architecture on one shared Claude Code artifact,
+"KAOS_Streamer × SwiftShout":
+<https://claude.ai/code/artifact/e7f190b0-3164-4470-b3e0-6044c7930d66>
+
+SimpleShout has no artifact of its own; its notes are the section
+"A second consumer: SimpleShout" on that page. Because any of the three projects
+may republish the page, a locally cached copy can go stale — re-read the live
+artifact before editing it, and update that section whenever SimpleShout's shape
+changes.
+
 ## Project state
 
 SimpleShout is a Swift package scaffolded via `swift package init --type tool`. Its purpose is a
@@ -24,8 +47,10 @@ with the public `SwiftShout.ShoutError`); call sites catch `ShoutError` and re-w
 
 - `Package.swift` — SwiftPM manifest. Swift tools version 6.3, Swift language mode v6, macOS 15+.
   Product `simpleshout` is built from executable target `SimpleShout`, which depends on
-  [swift-argument-parser](https://github.com/apple/swift-argument-parser), on `SwiftShout`
-  (a local path dependency at `../SwiftShout.git`, a sibling checkout), and on
+  [swift-argument-parser](https://github.com/apple/swift-argument-parser), on
+  [SwiftShout](https://github.com/trundlebits/SwiftShout) (a remote source-control
+  dependency fetched from GitHub, currently tracking the `main` branch since
+  SwiftShout has not yet tagged a release), and on
   [TOMLKit](https://github.com/LebJe/TOMLKit) for config file parsing.
 - `Sources/SimpleShout/SimpleShout.swift` — the executable target's entry point (directory
   matches the target name in the manifest; the product name `simpleshout` is the CLI
